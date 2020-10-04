@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Flights Challenge</title>
+</head>
+<body>
+    <div class="container p-4">
+        <!-- <div class="row">
+            <div class="col-12 py-5">
+                <h1 class="text-uppercase text-left font-weight-bold">Flights</h1>
+            </div>
+        </div> -->
+
+        <div>
+            <h1 class="text-center">ZERO BAGS OPTIONS</h1>
+            {% for itinerary in zero_itineraries %}
+                <div class="row itinerary mb-3">
+                    <div class="col-12 d-flex justify-content-between total my-2">
+                        <h3>Total Price: <span>{{ itinerary.price }}$</span></h1>
+                        <h3>Total Bag Price: <span>{{ itinerary.bag_price }}$</span></h1>
+                    </div>
+
+                    {% for flight in itinerary.flights %}
+                        <div class="trip col-12 p-3 mb-2">
+                            <div class="row">
+                                <div class="col-3 d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.source }}</h3>
+                                    <h4>{{ flight.departure }}</h4>
+                                </div>
+                                <div class="col-4 d-flex justify-content-center align-items-center display-3 flex-column">
+                                    <i class="fa fa-plane"></i>
+                                    <span style="font-size: 16px;" class="font-weight-bold">{{ flight.flight_number }}</span>
+                                </div>
+                                <div class="col-3 text-right d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.destination }}</h3>
+                                    <h4>{{ flight.arrival }}</h4>
+                                </div>
+                                <div class="details col-2 d-flex text-right flex-column justify-content-center">
+                                    <h5 class="text-muted">Bag price: {{ flight.bag_price }}$</h4>
+                                    <h5 class="text-muted">Flight price: {{ flight.price }}$</h4>
+                                    <h5 class="text-muted">Bags allowed: {{ flight.bags_allowed }}</h4></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-5">
+            <h1 class="text-center">ONE BAG OPTIONS</h1>
+            {% for itinerary in one_itineraries %}
+                <div class="row itinerary mb-3">
+                    <div class="col-12 d-flex justify-content-between total my-2">
+                        <h3>Total Price: <span>{{ itinerary.price }}$</span></h1>
+                        <h3>Total Bag Price: <span>{{ itinerary.bag_price }}$</span></h1>
+                    </div>
+
+                    {% for flight in itinerary.flights %}
+                        <div class="trip col-12 p-3 mb-2">
+                            <div class="row">
+                                <div class="col-3 d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.source }}</h3>
+                                    <h4>{{ flight.departure }}</h4>
+                                </div>
+                                <div class="col-4 d-flex justify-content-center align-items-center display-3 flex-column">
+                                    <i class="fa fa-plane"></i>
+                                    <span style="font-size: 16px;" class="font-weight-bold">{{ flight.flight_number }}</span>
+                                </div>
+                                <div class="col-3 text-right d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.destination }}</h3>
+                                    <h4>{{ flight.arrival }}</h4>
+                                </div>
+                                <div class="details col-2 d-flex text-right flex-column justify-content-center">
+                                    <h5 class="text-muted">Bag price: {{ flight.bag_price }}$</h4>
+                                    <h5 class="text-muted">Flight price: {{ flight.price }}$</h4>
+                                    <h5 class="text-muted">Bags allowed: {{ flight.bags_allowed }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-5">
+            <h1 class="text-center">TWO BAGS OPTIONS</h1>
+            {% for itinerary in two_itineraries %}
+                <div class="row itinerary mb-3">
+                    <div class="col-12 d-flex justify-content-between total my-2">
+                        <h3>Total Price: <span>{{ itinerary.price }}$</span></h1>
+                        <h3>Total Bag Price: <span>{{ itinerary.bag_price }}$</span></h1>
+                    </div>
+
+                    {% for flight in itinerary.flights %}
+                        <div class="trip col-12 p-3 mb-2">
+                            <div class="row">
+                                <div class="col-3 d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.source }}</h3>
+                                    <h4>{{ flight.departure }}</h4>
+                                </div>
+                                <div class="col-4 d-flex justify-content-center align-items-center display-3 flex-column">
+                                    <i class="fa fa-plane"></i>
+                                    <span style="font-size: 16px;" class="font-weight-bold">{{ flight.flight_number }}</span>
+                                </div>
+                                <div class="col-3 text-right d-flex flex-column justify-content-center">
+                                    <h3 class="font-weight-bold">{{ flight.destination }}</h3>
+                                    <h4>{{ flight.arrival }}</h4>
+                                </div>
+                                <div class="details col-2 d-flex text-right flex-column justify-content-center">
+                                    <h5 class="text-muted">Bag price: {{ flight.bag_price }}$</h4>
+                                    <h5 class="text-muted">Flight price: {{ flight.price }}$</h4>
+                                    <h5 class="text-muted">Bags allowed: {{ flight.bags_allowed }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="my-5">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <h2>Change input data:</h2>
+                    <h5 class="d-block">Example:</h4>
+                    <p class="d-block p-3" style="background: rgb(233, 233, 233); border-radius: 10px;">
+                        source,destination,departure,arrival,flight_number,price,bags_allowed,bag_price<br>
+                        X,Y,2017-02-11T06:25:00,2017-02-11T07:25:00,A,12,2,9<br>
+                        Y,X,2017-02-11T08:35:00,2017-02-11T11:30:00,B,13,1,15<br>
+                        Y,Z,2017-02-11T08:35:00,2017-02-11T11:30:00,C,14,2,15<br>
+                        Y,X,2017-02-12T08:35:00,2017-02-11T11:30:00,B,15,1,15<br>
+                        Z,W,2017-02-11T12:35:00,2017-02-11T21:30:00,D,16,2,15<br>
+                    </p>
+                </div>
+
+                <form action="/" method="post">
+                    <textarea name="input_data" id="input_data" cols="140" rows="15"></textarea>
+                    <button class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
